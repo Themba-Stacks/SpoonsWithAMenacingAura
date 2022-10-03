@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 558a0f0efb94d484fa87f1e65d4f1ee0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - firePoint: {instanceID: 0}
+  - lightBeamPrefab: {fileID: 5194977565838463014, guid: 9f3d26fc9e7bd0c4f9802ce9ef42e89d, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
