@@ -20,6 +20,7 @@ public class shooting : MonoBehaviour
     void Shoot()
     {
        GameObject lightbeam = Instantiate(lightBeamPrefab, lightBeamPoint.position, lightBeamPoint.rotation);
+       lightbeam.transform.rotation = this.transform.rotation;
         Rigidbody2D rb = lightbeam.GetComponent<Rigidbody2D>();
         rb.AddForce(lightBeamPoint.up * lightBeamForce, ForceMode2D.Impulse);
     }
