@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class shooting : MonoBehaviour
+public class Shooting : MonoBehaviour
 {
     public Transform lightBeamPoint;
     public GameObject lightBeamPrefab;
     public float lightBeamForce = 20f;
     private Animator animate;
+    public Player player;
 
     private void Start()
     {
@@ -20,6 +21,8 @@ public class shooting : MonoBehaviour
         if(Input.GetButtonDown("Fire2"))
         {
             Shoot();
+            // testing player health
+            // player.TakeDamage(5);
         }
     }
 
@@ -29,6 +32,6 @@ public class shooting : MonoBehaviour
         lightbeam.transform.rotation = this.transform.rotation;
         Rigidbody2D rb = lightbeam.GetComponent<Rigidbody2D>();
         rb.AddForce(lightBeamPoint.up * lightBeamForce, ForceMode2D.Impulse);
-        animate.SetTrigger("ShootTrigger");        
+        animate.SetTrigger("ShootTrigger");
     }
 }
