@@ -431,7 +431,7 @@ SpriteRenderer:
   m_Size: {x: 38.399998, y: 21.599998}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &397324365
@@ -645,6 +645,11 @@ LightingSettings:
   m_PVRFilteringAtrousPositionSigmaIndirect: 2
   m_PVRFilteringAtrousPositionSigmaAO: 1
   m_PVRTiledBaking: 0
+--- !u!4 &555103433 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4481103903409266, guid: 6ec64b4c4066fda49891d51887ba93b3, type: 3}
+  m_PrefabInstance: {fileID: 1123235222}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &746802229
 GameObject:
   m_ObjectHideFlags: 0
@@ -741,7 +746,7 @@ RectTransform:
   - {fileID: 1900340468}
   - {fileID: 97905952}
   - {fileID: 2125641881}
-  - {fileID: 1123235223}
+  - {fileID: 555103433}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1031,11 +1036,6 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 4e82065b793658b48aac15d5cc29a954, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ec64b4c4066fda49891d51887ba93b3, type: 3}
---- !u!4 &1123235223 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9223372036854775806, guid: 6ec64b4c4066fda49891d51887ba93b3, type: 3}
-  m_PrefabInstance: {fileID: 1123235222}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1196264584
 GameObject:
   m_ObjectHideFlags: 0
@@ -1551,7 +1551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8743df17e8a2d44cbcf9d605deee399, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneToLoadOnPlay: Level
+  _sceneToLoadOnPlay: GamePlay
   _webpageURL: http://www.alpaca.studio
   _soundButtons:
   - {fileID: 1196264586}
