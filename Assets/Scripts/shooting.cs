@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class shooting : MonoBehaviour
+public class Shooting : MonoBehaviour
 {
     public Transform lightBeamPoint;
     public GameObject lightBeamPrefab;
@@ -10,9 +10,12 @@ public class shooting : MonoBehaviour
     public float lightBeamForce = 20f;
     public int startAmmo = 0;
     public int  currentAmmo = 0;
+    private Animator animate;
+    public Player player;
 
-    void Start()
+    private void Start()
     {
+        animate = GetComponent<Animator>();
         currentAmmo = startAmmo;    
     }
 
@@ -24,11 +27,15 @@ public class shooting : MonoBehaviour
         if(Input.GetButtonDown("Fire2") && currentAmmo > 0)
         {
             Shoot();
+            // testing player health
+            // player.TakeDamage(5);
         }
     }
 
     void Shoot()
     {
+        GameObject lightbeam = Instantiate(lightBeamPrefab, lightBeamPoint.position, lightBeamPoint.rotation);
+        lightbeam.transform.rotation = this.transform.rotation;
         GameObject lightbeam = Instantiate(lightBeamPrefab, transform.position + transform.right * rayDistance, transform.rotation);
         Rigidbody2D rb = lightbeam.GetComponent<Rigidbody2D>();
         rb.AddForce(lightbeam.transform.right * lightBeamForce, ForceMode2D.Impulse);
@@ -43,5 +50,7 @@ public class shooting : MonoBehaviour
     public void addAmmo(int ammoToAdd)
     {
         currentAmmo = Mathf.Clamp(currentAmmo + ammoToAdd, 0, startAmmo);
+        rb.AddForce(lightBeamPoint.up * lightBeamForce, ForceMode2D.Impulse);
+        animate.SetTrigger("ShootTrigger");
     }
 }
