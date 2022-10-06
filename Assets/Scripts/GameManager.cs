@@ -4,21 +4,32 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject[] layerShapes;
+    public GameObject shape;
 
     private float calibratedTime = 15;
 
-    public float layerDifferenceSeconds;
+    private int maxLayers = 3;
+    private int lastIndex = 0;
+    public ArrayList layerShapes = new ArrayList();
     public float initialLayerSeconds;
+    public float layerDifferenceSeconds;
 
-    private void Start()
-    {
-        for(int i = 0; i < layerShapes.Length; i++)
+    private void FixedUpdate()
+    {            
+        if (layerShapes.Count < maxLayers)
         {
-            GameObject layer = Instantiate(layerShapes[i]);
+            GameObject layer = Instantiate(shape);
             layer.transform.localScale *= initialLayerSeconds / calibratedTime;
-            layer.transform.localScale += i * layer.transform.localScale * (layerDifferenceSeconds / initialLayerSeconds);
-            layer.GetComponent<BarrierManagement>().maxTime = i * layerDifferenceSeconds + initialLayerSeconds;
+            layer.transform.localScale += lastIndex * layer.transform.localScale * (layerDifferenceSeconds / initialLayerSeconds);
+            layer.GetComponent<BarrierManagement>().maxTime = lastIndex * layerDifferenceSeconds + initialLayerSeconds;
+
+            layerShapes.Add(layer);
+            lastIndex++;
         }
+    }
+
+    public void removeBarrier(GameObject barrier)
+    {
+        layerShapes.Remove(barrier);
     }
 }

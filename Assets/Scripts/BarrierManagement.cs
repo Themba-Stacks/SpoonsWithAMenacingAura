@@ -9,6 +9,7 @@ public class BarrierManagement : MonoBehaviour
     public int startHealth;
     public int maxShardsDropped;
     public Camera mainCamera;
+    public GameManager gameManager;
 
     // Order from most likely to least
     public GameObject[] shards;
@@ -22,6 +23,7 @@ public class BarrierManagement : MonoBehaviour
 
     private void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
         currentHealth = startHealth;
         originalScale = transform.localScale;
     }
@@ -81,6 +83,8 @@ public class BarrierManagement : MonoBehaviour
         }
 
         this.gameObject.SetActive(false);
-        Destroy(this);
+
+        gameManager.removeBarrier(this.gameObject);
+        Destroy(this.gameObject);
     }
 }

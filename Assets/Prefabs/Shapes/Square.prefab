@@ -554,7 +554,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   startHealth: 10
-  maxShardsDropped: 10
+  maxShardsDropped: 3
   mainCamera: {fileID: 0}
   shards:
   - {fileID: 7176022297353996221, guid: 6a41e4f4a74521248b5324de62897fd5, type: 3}

@@ -12,7 +12,7 @@ public class HealthShard : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             print("we collid");
-            collision.gameObject.GetComponent<shooting>().addHealth(healthToGive);
+            collision.gameObject.GetComponent<Shooting>().addHealth(healthToGive);
             Destroy(this.gameObject);
         }
     }

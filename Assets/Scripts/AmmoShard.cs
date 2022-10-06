@@ -10,7 +10,7 @@ public class AmmoShard : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<shooting>().addAmmo(ammoToGive);
+            collision.gameObject.GetComponent<Shooting>().addAmmo(ammoToGive);
             Destroy(this.gameObject);
         }
     }
