@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Barrier
   - Shard
+  - light
   layers:
   - Default
   - TransparentFX
