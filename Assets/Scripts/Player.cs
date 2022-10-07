@@ -36,6 +36,13 @@ public class Player : MonoBehaviour
         movement.y = Input.GetAxisRaw("Vertical");
 
         mousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
+
+        // stop game
+        if (currentHealth <= 0)
+        {
+            new WaitForSeconds(6);
+            SceneManager.LoadScene(0);
+        }
     }
 
    // void FixedUpdate()
@@ -49,14 +56,16 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-        healthBar.SetHealth(currentHealth);
+            currentHealth -= damage;
+            healthBar.SetHealth(currentHealth);
+    }
 
-        // stop game
-        if (currentHealth <= 0) 
+    public void ArmsDamage(int damage)
+    {
+        if (!isParrying)
         {
-            new WaitForSeconds(6);
-            SceneManager.LoadScene(0);
+            currentHealth -= damage;
+            healthBar.SetHealth(currentHealth);
         }
     }
 
@@ -74,5 +83,6 @@ public class Player : MonoBehaviour
     public void ParryAnimation(bool parry)
     {
         animate.SetBool("parry", parry);
+        isParrying = parry;
     }
 }
