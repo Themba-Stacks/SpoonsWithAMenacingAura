@@ -4826,7 +4826,7 @@ GameObject:
   - component: {fileID: -7018125294192132158}
   - component: {fileID: 8843925336205048611}
   m_Layer: 0
-  m_Name: 20
+  m_Name: thelightbeam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
