@@ -169,6 +169,7 @@ GameObject:
   - component: {fileID: 172994783}
   - component: {fileID: 172994784}
   - component: {fileID: 172994785}
+  - component: {fileID: 172994786}
   m_Layer: 0
   m_Name: Player (PH)
   m_TagString: Player
@@ -318,16 +319,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 558a0f0efb94d484fa87f1e65d4f1ee0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightBeamPoint: {fileID: 1833619794}
+  lightBeamPoint: {fileID: 0}
   lightBeamPrefab: {fileID: 623849020312119879, guid: 25feccec47f944f499c6ab2942ee5ce4, type: 3}
-  rayDistance: 0
-  lightBeamForce: 8
-  startAmmo: 10
+  rayDistance: 1
+  lightBeamForce: 7
+  startAmmo: 4
   currentAmmo: 0
   player: {fileID: 172994784}
   rb: {fileID: 649844013}
---- !u!224 &172994786
-RectTransform:
+--- !u!50 &172994786
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -348,6 +350,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0.0065, y: 0}
   m_SizeDelta: {x: 1.6, y: 0.9}
   m_Pivot: {x: 0.5, y: 0.5}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 6200000, guid: 14dc7bbcf969bbd488c908ab80342bd4, type: 2}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &367996561
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,8 +781,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shape: {fileID: 954004281850034549, guid: 799f3afa5855564458b9d5815d698572, type: 3}
+  beamPrefab: {fileID: 623849020312119879, guid: 25feccec47f944f499c6ab2942ee5ce4, type: 3}
+  timePassed: 0
+  firstColour: {r: 0, g: 0, b: 0, a: 1}
+  secondColour: {r: 0.8773585, g: 0.8773585, b: 0.8773585, a: 1}
   initialLayerSeconds: 40
-  layerDifferenceSeconds: 20
+  layerDifferenceSeconds: 40
 --- !u!114 &2073924264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -780,8 +799,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 155e28e2f9f53b44193a6bdc3576ffa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followFactor: 0
-  player: {fileID: 172994786}
+  followFactor: 0.5
+  player: {fileID: 172994776}
 --- !u!224 &1170952130643929928
 RectTransform:
   m_ObjectHideFlags: 0
