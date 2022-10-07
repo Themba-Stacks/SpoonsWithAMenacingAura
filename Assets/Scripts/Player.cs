@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Player : MonoBehaviour
     public Camera cam;
     public HealthBar healthBar;
     public Shooting shooting;
+    private Animator animate;
     Vector2 movement;
     Vector2 mousePosition;
 
@@ -16,6 +18,7 @@ public class Player : MonoBehaviour
 
     public int maxHealth = 100;
     public int currentHealth;
+    public bool isParrying = false;
 
     // Start is called before the first frame update
 
@@ -23,6 +26,7 @@ public class Player : MonoBehaviour
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        animate = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -47,6 +51,13 @@ public class Player : MonoBehaviour
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
+
+        // stop game
+        if (currentHealth <= 0) 
+        {
+            new WaitForSeconds(6);
+            SceneManager.LoadScene(0);
+        }
     }
 
     public void AddHealth(int healthToAdd)
@@ -60,4 +71,8 @@ public class Player : MonoBehaviour
         shooting.AddAmmo(lightbeams);
     }
 
+    public void ParryAnimation(bool parry)
+    {
+        animate.SetBool("parry", parry);
+    }
 }
