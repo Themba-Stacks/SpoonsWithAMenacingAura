@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Player : MonoBehaviour
     public Camera cam;
     public HealthBar healthBar;
     public Shooting shooting;
+    private Animator animate;
     Vector2 movement;
     Vector2 mousePosition;
 
@@ -16,6 +18,7 @@ public class Player : MonoBehaviour
 
     public int maxHealth = 100;
     public int currentHealth;
+    public bool isParrying = false;
 
     // Start is called before the first frame update
 
@@ -23,6 +26,7 @@ public class Player : MonoBehaviour
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        animate = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -34,19 +38,26 @@ public class Player : MonoBehaviour
         mousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
     }
 
-    void FixedUpdate()
-    {
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+   // void FixedUpdate()
+   // {
+  //      rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
 
-        Vector2 lookDirection = mousePosition - rb.position;
-        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
-        rb.rotation = angle;
-    }
+ //       Vector2 lookDirection = mousePosition - rb.position;
+  //      float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+//        rb.rotation = angle;
+    //}
 
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
+
+        // stop game
+        if (currentHealth <= 0) 
+        {
+            new WaitForSeconds(6);
+            SceneManager.LoadScene(0);
+        }
     }
 
     public void AddHealth(int healthToAdd)
@@ -60,4 +71,8 @@ public class Player : MonoBehaviour
         shooting.AddAmmo(lightbeams);
     }
 
+    public void ParryAnimation(bool parry)
+    {
+        animate.SetBool("parry", parry);
+    }
 }
