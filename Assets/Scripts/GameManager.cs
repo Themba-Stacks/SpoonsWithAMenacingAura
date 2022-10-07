@@ -36,8 +36,9 @@ public class GameManager : MonoBehaviour
             float ratioForTime = lastIndex * layerDifferenceSeconds - timePassed % layerDifferenceSeconds;
             layer.transform.localScale += lastIndex * layer.transform.localScale * (layerDifferenceSeconds / initialLayerSeconds);           
             layer.GetComponent<BarrierManagement>().maxTime = lastIndex * (layerDifferenceSeconds) + initialLayerSeconds;
+            layer.GetComponent<BarrierManagement>().startHealth *= lastIndex + 1;
 
-            foreach(SpriteRenderer child in layer.GetComponentsInChildren<SpriteRenderer>()) { 
+            foreach (SpriteRenderer child in layer.GetComponentsInChildren<SpriteRenderer>()) { 
                  child.material.color = switchTheme ? firstColour : secondColour;
             }
 

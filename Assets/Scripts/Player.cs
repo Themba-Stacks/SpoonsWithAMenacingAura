@@ -38,14 +38,14 @@ public class Player : MonoBehaviour
         mousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
     }
 
-    void FixedUpdate()
-    {
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+   // void FixedUpdate()
+   // {
+  //      rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
 
-        Vector2 lookDirection = mousePosition - rb.position;
-        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
-        rb.rotation = angle;
-    }
+ //       Vector2 lookDirection = mousePosition - rb.position;
+  //      float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+//        rb.rotation = angle;
+    //}
 
     public void TakeDamage(int damage)
     {
