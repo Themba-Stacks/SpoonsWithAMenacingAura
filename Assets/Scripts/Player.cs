@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
 
     public int maxHealth = 100;
     public int currentHealth;
-    private bool isParrying = false;
+    public bool isParrying = false;
 
     // Start is called before the first frame update
 
@@ -49,16 +49,13 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        // if player is parrying don't take damage
-        if(!isParrying)
-        {
-            currentHealth -= damage;
-            healthBar.SetHealth(currentHealth);
-        }
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
 
         // stop game
         if (currentHealth <= 0) 
         {
+            new WaitForSeconds(6);
             SceneManager.LoadScene(0);
         }
     }
@@ -77,6 +74,5 @@ public class Player : MonoBehaviour
     public void ParryAnimation(bool parry)
     {
         animate.SetBool("parry", parry);
-        isParrying = parry;
     }
 }

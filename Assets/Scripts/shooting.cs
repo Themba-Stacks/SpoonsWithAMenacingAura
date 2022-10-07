@@ -23,11 +23,6 @@ public class Shooting : MonoBehaviour
     {
         rb.velocity = Vector3.zero;
 
-        //if(Input.GetButtonDown("Fire1"))
-        //{
-        //    Parry();
-        //}
-
         if(Input.GetButtonDown("Fire2") && currentAmmo > 0)
         {
            Shoot();
@@ -62,7 +57,5 @@ public class Shooting : MonoBehaviour
     public void AddAmmo(int ammoToAdd)
     {
         currentAmmo = Mathf.Clamp(currentAmmo + ammoToAdd, 0, startAmmo);
-        // rb.AddForce(lightBeamPoint.up * lightBeamForce, ForceMode2D.Impulse);
-        // animate.SetTrigger("ShootTrigger");
     }
 }
