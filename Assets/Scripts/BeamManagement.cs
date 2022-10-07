@@ -55,6 +55,7 @@ public class BeamManagement : MonoBehaviour
         }
         else if(col.gameObject.name == "arm_R" || col.gameObject.name == "arm_L")
         {
+            col.gameObject.GetComponentInParent<Player>().ArmsDamage(level);
             levelUpProgress = Mathf.Clamp(levelUpProgress - levelUpHits, 0, levelCap * levelUpHits);
         }
         reflect();
