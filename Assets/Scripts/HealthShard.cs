@@ -8,11 +8,9 @@ public class HealthShard : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        print(collision.gameObject.name);
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.name == "body")
         {
-            print("we collid");
-            collision.gameObject.GetComponent<Shooting>().addHealth(healthToGive);
+            collision.gameObject.GetComponentInParent<Player>().AddHealth(healthToGive);
             Destroy(this.gameObject);
         }
     }
