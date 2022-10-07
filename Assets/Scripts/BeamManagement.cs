@@ -46,8 +46,9 @@ public class BeamManagement : MonoBehaviour
                 levelUpProgress = Mathf.Clamp(levelUpProgress + 1, levelUpProgress, levelCap * levelUpHits);
 
         }
-        else if (col.gameObject.tag == "Player")
+        else if (col.gameObject.name == "body")
         {
+            col.gameObject.GetComponentInParent<Player>().TakeDamage(level);
             levelUpProgress = Mathf.Clamp(levelUpProgress - levelUpHits, 0, levelCap * levelUpHits);
         }
 

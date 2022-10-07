@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb;
     public Camera cam;
     public HealthBar healthBar;
+    public Shooting shooting;
     Vector2 movement;
     Vector2 mousePosition;
 
@@ -47,4 +48,16 @@ public class Player : MonoBehaviour
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
     }
+
+    public void AddHealth(int healthToAdd)
+    {
+        currentHealth += healthToAdd;
+        healthBar.SetHealth(currentHealth);
+    }
+
+    public void Relight(int lightbeams)
+    {
+        shooting.AddAmmo(lightbeams);
+    }
+
 }
