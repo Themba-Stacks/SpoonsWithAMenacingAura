@@ -278,8 +278,8 @@ MonoBehaviour:
   - {fileID: 1900843780}
   - {fileID: 1752765999}
   m_Bounds:
-    m_Center: {x: 0.06076145, y: -0.019601643, z: 0}
-    m_Extent: {x: 0.3850491, y: 0.25865793, z: 0}
+    m_Center: {x: 0.06069261, y: -0.019601524, z: 0}
+    m_Extent: {x: 0.38498026, y: 0.2586578, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -336,7 +336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightBeamPoint: {fileID: 1833619794}
   lightBeamPrefab: {fileID: 623849020312119879, guid: 25feccec47f944f499c6ab2942ee5ce4, type: 3}
-  rayDistance: 0
+  rayDistance: 0.8
   lightBeamForce: 8
   startAmmo: 3
   currentAmmo: 0
@@ -471,14 +471,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1752765998}
-  m_LocalRotation: {x: 0, y: -0, z: -0.99992526, w: 0.012226472}
+  m_LocalRotation: {x: -0, y: -0, z: -0.9997574, w: 0.022027362}
   m_LocalPosition: {x: -0.080377795, y: -0.18871516, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 649844011}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -177.476}
 --- !u!70 &1752766000
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -556,7 +556,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1833619792}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 558a0f0efb94d484fa87f1e65d4f1ee0, type: 3}
   m_Name: 
@@ -568,7 +568,7 @@ MonoBehaviour:
   startAmmo: 3
   currentAmmo: 0
   player: {fileID: 172994784}
-  rb: {fileID: 1833619793}
+  rb: {fileID: 649844013}
 --- !u!1 &1900843779
 GameObject:
   m_ObjectHideFlags: 0

@@ -34,6 +34,7 @@ public class BeamManagement : MonoBehaviour
     }
 
     public void OnCollisionEnter2D(Collision2D col){
+        
         if (col.gameObject.tag == "Barrier")
         {
 
@@ -45,15 +46,27 @@ public class BeamManagement : MonoBehaviour
             else
                 levelUpProgress = Mathf.Clamp(levelUpProgress + 1, levelUpProgress, levelCap * levelUpHits);
 
+
         }
         else if (col.gameObject.name == "body")
         {
             col.gameObject.GetComponentInParent<Player>().TakeDamage(level);
             levelUpProgress = Mathf.Clamp(levelUpProgress - levelUpHits, 0, levelCap * levelUpHits);
         }
+        //else if(col.gameObject.name == "arm_L" || col.gameObject.name == "arm_R")
+       // {
 
+      //  }
+
+        reflect();
+        print(col.gameObject.name);
+
+    }
+
+    public void reflect()
+    {
         Vector2 myDirection = GetComponent<Rigidbody2D>().velocity;
-        float angle = 180*Mathf.Atan2(myDirection.y, myDirection.x)/Mathf.PI;
+        float angle = 180 * Mathf.Atan2(myDirection.y, myDirection.x) / Mathf.PI;
 
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }

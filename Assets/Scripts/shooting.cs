@@ -10,13 +10,11 @@ public class Shooting : MonoBehaviour
     public float lightBeamForce = 20f;
     public int startAmmo = 0;
     public int  currentAmmo = 0;
-    private Animator animate;
     public Player player;
     public Rigidbody2D rb;
 
     private void Start()
     {
-        animate = GetComponent<Animator>();
         currentAmmo = startAmmo;    
     }
 
@@ -25,16 +23,24 @@ public class Shooting : MonoBehaviour
     {
         rb.velocity = Vector3.zero;
 
-        if(Input.GetButtonDown("Fire1"))
-        {
-            Parry();
-        }
+        //if(Input.GetButtonDown("Fire1"))
+        //{
+        //    Parry();
+        //}
 
         if(Input.GetButtonDown("Fire2") && currentAmmo > 0)
         {
-            Shoot();
-            // testing player health
-            // player.TakeDamage(5);
+           Shoot();
+        }
+
+        if(Input.GetMouseButtonDown(0))
+        {
+            Parry(true);
+        }
+
+        if(Input.GetMouseButtonUp(0))
+        {
+            Parry(false);
         }
     }
 
@@ -47,9 +53,10 @@ public class Shooting : MonoBehaviour
         currentAmmo--;
     }
 
-    void Parry()
+    void Parry(bool parry)
     {
-        animate.SetTrigger("ParryTrigger");
+        player.ParryAnimation(parry);
+        print("Player is parrying");
     }
 
     public void AddAmmo(int ammoToAdd)
