@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffcab949a09bf4f428aa3874ff04a790, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 6
 --- !u!212 &172994778
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -242,6 +242,7 @@ MonoBehaviour:
   lightBeamForce: 5
   startAmmo: 3
   currentAmmo: 0
+  player: {fileID: 0}
 --- !u!50 &172994781
 Rigidbody2D:
   serializedVersion: 4
@@ -302,6 +303,7 @@ GameObject:
   - component: {fileID: 2073924260}
   - component: {fileID: 2073924263}
   - component: {fileID: 2073924264}
+  - component: {fileID: 2073924265}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -387,12 +389,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07f81c1ada40c6f4da1bf9b6350e6216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layerShapes:
-  - {fileID: 954004281850034549, guid: 799f3afa5855564458b9d5815d698572, type: 3}
-  - {fileID: 954004281850034549, guid: 799f3afa5855564458b9d5815d698572, type: 3}
-  - {fileID: 954004281850034549, guid: 799f3afa5855564458b9d5815d698572, type: 3}
-  layerDifferenceSeconds: 40
-  initialLayerSeconds: 40
+  shape: {fileID: 954004281850034549, guid: 799f3afa5855564458b9d5815d698572, type: 3}
+  beamPrefab: {fileID: 623849020312119879, guid: 25feccec47f944f499c6ab2942ee5ce4, type: 3}
+  initialLayerSeconds: 30
+  layerDifferenceSeconds: 30
 --- !u!114 &2073924264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,5 +405,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 155e28e2f9f53b44193a6bdc3576ffa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followFactor: 0
+  followFactor: 0.5
   player: {fileID: 172994776}
+--- !u!114 &2073924265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073924259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c921c927d86460d4fb546cbd3ce600c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -6,6 +6,8 @@ public class BeamManagement : MonoBehaviour
 {
     public Color wallDamageColour;
     public Color[] playerDamageColours;
+    public TrailRenderer myTrail;
+    private ParticleSystem myParticles;
 
     public int levelUpHits;
 
@@ -17,6 +19,8 @@ public class BeamManagement : MonoBehaviour
 
     private void Start()
     {
+        myParticles = GetComponent<ParticleSystem>();
+        myTrail = GetComponentInChildren<TrailRenderer>();
         levelCap = playerDamageColours.Length;
         mySprite = GetComponent<SpriteRenderer>();
         speed = GetComponent<Rigidbody2D>().velocity.magnitude;
@@ -28,9 +32,15 @@ public class BeamManagement : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = transform.right.normalized * speed;
 
         if (level == 0)
+        {
             mySprite.material.color = wallDamageColour;
+            myTrail.startColor = wallDamageColour;
+        }
         else
+        {
             mySprite.material.color = playerDamageColours[level - 1];
+            myTrail.startColor = playerDamageColours[level - 1];
+        }
     }
 
     public void OnCollisionEnter2D(Collision2D col){
