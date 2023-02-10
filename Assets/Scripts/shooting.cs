@@ -26,6 +26,7 @@ public class Shooting : MonoBehaviour
         if(Input.GetButtonDown("Fire2") && currentAmmo > 0)
         {
            Shoot();
+            Parry(false);
         }
 
         if(Input.GetMouseButtonDown(0))
